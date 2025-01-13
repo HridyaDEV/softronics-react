@@ -5,12 +5,11 @@ import { IoIosSunny } from "react-icons/io";
 const Timeline = ({ sunrise, sunset, currentTime, timezone }) => {
     const [progress, setProgress] = useState(0);
 
-
     const sunriseTimestamp = new Date((sunrise + timezone) * 1000).getTime();
     const sunsetTimestamp = new Date((sunset + timezone) * 1000).getTime();
 
     // Calculate total daylight duration
-    const totalDaylight = sunsetTimestamp - sunriseTimestamp; 
+    const totalDaylight = sunsetTimestamp - sunriseTimestamp;
 
     // Helper function to convert UNIX timestamp to HH:MM format
     function convertUnixToTime(unixTimestamp) {
@@ -20,10 +19,11 @@ const Timeline = ({ sunrise, sunset, currentTime, timezone }) => {
         return `${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}`;
     }
 
-    // Update current time every second
+    // Update progress when currentTime changes
     useEffect(() => {
         const updateProgress = () => {
-            const currentTimestamp = new Date().getTime(); // Get current time in milliseconds
+            const currentTimestamp = currentTime * 1000; // Convert UNIX time to milliseconds
+
             if (currentTimestamp < sunriseTimestamp) {
                 setProgress(0); // Before sunrise
             } else if (currentTimestamp > sunsetTimestamp) {
@@ -37,12 +37,8 @@ const Timeline = ({ sunrise, sunset, currentTime, timezone }) => {
 
         // Initial progress update
         updateProgress();
-        
-        // Update progress every second
-        const interval = setInterval(updateProgress, 1000);
-        
-        return () => clearInterval(interval); 
-    }, [sunriseTimestamp, sunsetTimestamp, totalDaylight]);
+
+    }, [sunriseTimestamp, sunsetTimestamp, totalDaylight, currentTime]); // Dependencies to update progress on currentTime change
 
     return (
         <div className="w-full flex flex-col items-center justify-center rounded-lg shadow-md p-4">
@@ -70,8 +66,8 @@ const Timeline = ({ sunrise, sunset, currentTime, timezone }) => {
                 <div
                     className="h-2 bg-gray-500 rounded-lg"
                     style={{
-                        width: `${progress}%`, 
-                        transition: "width 1s linear", 
+                        width: `${progress}%`,
+                        transition: "width 1s linear",
                     }}
                 ></div>
 
@@ -79,8 +75,8 @@ const Timeline = ({ sunrise, sunset, currentTime, timezone }) => {
                 <div
                     className="absolute top-1/2 transform -translate-y-1/2"
                     style={{
-                        left: `calc(${progress}% - 10px)`, 
-                        transition: "left 1s linear", 
+                        left: `calc(${progress}% - 10px)`,
+                        transition: "left 1s linear",
                     }}
                 >
                     <IoIosSunny className="text-yellow-300 text-4xl" />
