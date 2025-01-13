@@ -1,4 +1,9 @@
 
+import { BrowserRouter, Router, Routes,Route } from 'react-router-dom';
+import Home from './Pages/Home';
+import Contact from './Pages/Contact';
+import Error from './Pages/Error';
+import First from './Pages/First';
 import './App.css';
 import ThemeChange from './components/ThemeChange';
 //import Card from './components/Card';
@@ -97,7 +102,22 @@ return(
 
 //lightmode & darkmode
 
-<ThemeChange/>
+//<ThemeChange/>
+
+<>
+<BrowserRouter>
+<Routes>
+<Route path="/" element={<First />}/>
+  <Route path = "home" element={<Home/>}/>
+  <Route path="contact" element={<Contact />} />
+ 
+  <Route path="*" element={<Error />} />
+
+ 
+</Routes>
+</BrowserRouter>
+</>
+
 
 )}
 
