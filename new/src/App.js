@@ -9,6 +9,8 @@ import ThemeChange from './components/ThemeChange';
 //import Card from './components/Card';
 //import Counter from './components/Counter';
 import Timer from './components/Timer';
+import Counter1 from './components/Counter1';
+import Navbar from './Pages/Navbar';
 
 
   //card background-color based on status
@@ -83,17 +85,15 @@ import Timer from './components/Timer';
    
 
 //counter 
-function App() {
 
-return(
  
-  /*<Counter
-        decrementLabel="Decrement" 
-        incrementLabel="Increment" 
-        resetLabel="Reset" 
-        />
+//   <Counter
+//         decrementLabel="Decrement" 
+//         incrementLabel="Increment" 
+//         resetLabel="Reset" 
+//         />
  
-)*/
+// )
 
 
 //timer
@@ -104,7 +104,7 @@ return(
 
 //<ThemeChange/>
 
-<>
+{/* <>
 <BrowserRouter>
 <Routes>
 <Route path="/" element={<First />}/>
@@ -116,7 +116,19 @@ return(
  
 </Routes>
 </BrowserRouter>
+</> */}
+
+
+function App() {
+
+  return(
+
+<>
+<Navbar/>
+<Counter1/>
+
 </>
+
 
 
 )}

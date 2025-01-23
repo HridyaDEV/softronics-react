@@ -1,0 +1,8 @@
+1- Store - to store states
+
+2- Reducer - edit store
+
+3- Action - ex:- buttonClick etc.
+
+4- Provider - Every states are stored in store. To inject these stores to project.
+
