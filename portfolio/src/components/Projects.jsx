@@ -3,6 +3,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { FaLaptopCode } from "react-icons/fa";
 
+
 const projects = [
   {
     title: "E-Learning App",
@@ -10,6 +11,7 @@ const projects = [
       "Developed an innovative e-learning application using machine learning to predict individual learning styles. Enhanced user experience with CSS and Java, leveraging tools like Android Studio and Firebase.",
     technologies: "Java, CSS, Android Studio, Firebase",
     delay: 300,
+    
   },
   {
     title: "Library Management System",
@@ -24,13 +26,15 @@ const projects = [
       "Created an interactive movie app that fetches and displays movie data using an external API. Users can search, view details, and save their favorite movies.",
     technologies: "React.js,Tailwind CSS",
     delay: 500,
+    sourceCode: 'https://github.com/HridyaDEV/softronics-react/tree/main/movie',
   },
   {
     title: "Weather App",
     description:
       "Built a responsive weather application that provides real-time weather updates based on location or user input using an external weather API.",
     technologies: "React.js,Tailwind CSS, JavaScript",
-    delay: 600,
+    delay: 500,
+    sourceCode: 'https://github.com/HridyaDEV/softronics-react/tree/main/weather-app',
   },
 
 ];
@@ -71,6 +75,17 @@ function Projects() {
               <p className="text-sm text-gray-500 mt-2">
                 Technologies: {project.technologies}
               </p>
+              
+              {project.sourceCode && (
+                <a
+                  href={project.sourceCode}
+                  target="_blank"
+                 
+                  className="mt-4 inline-block bg-purple-500 text-white px-4 py-2 rounded-lg hover:bg-purple-600 transition-colors"
+                >
+                  View Source Code
+                </a>
+              )}
             </div>
           ))}
         </div>

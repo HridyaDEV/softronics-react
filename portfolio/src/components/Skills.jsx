@@ -8,7 +8,7 @@ function Skills() {
     Aos.init({ duration: 1000 }); // Initialize AOS with animation duration
   }, []);
 
-  // Array of skills with icon, name, and description
+  
   const skills = [
     {
       id: 1,
@@ -56,6 +56,7 @@ function Skills() {
         id:8,
         icon: <FaJava className="text-6xl text-cyan-600" />,
         name : 'Java',
+        description: 'Versatile language for building secure and scalable applications',
     },
   ];
 

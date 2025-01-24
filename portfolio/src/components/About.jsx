@@ -8,7 +8,7 @@ function About() {
         Aos.init({ duration: 1000 }); // Initialize AOS with animation duration
     }, []);
 
-    // Dynamic data
+   
     const profileInfo = {
         name: "Hridya P V",
 
@@ -65,7 +65,6 @@ function About() {
                                 <a
                                     href={profileInfo.resumeLink}
                                     target="_blank"
-                                    rel="noopener noreferrer"
                                     className="flex items-center space-x-2"
                                 >
                                     <span className="text-lg font-semibold">Get Resume</span>
