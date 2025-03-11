@@ -13,7 +13,7 @@ function About() {
         name: "Hridya P V",
 
         resumeLink: "/Resume.pdf",
-        profileImage: "/IMG_1288.jpg",
+        profileImage: "/portfolio.jpg",
     };
 
     const details = [
